@@ -1,0 +1,335 @@
+<<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para Eunice 🧸</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#e8457c;
+  --rosaclaro:#ffc2d6;
+  --lila:#9b5de5;
+  --azul:#6f9dff;
+  --durazno:#ff9a76;
+  --crema:#fff7f3;
+  --tinta:#4a2540;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--tinta);
+  font-family:'Lora',Georgia,'Times New Roman',serif;
+  font-size:1.32rem;line-height:1.85;min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 8%,rgba(255,194,214,.85) 0,transparent 42%),
+    radial-gradient(circle at 90% 22%,rgba(214,190,255,.8) 0,transparent 40%),
+    radial-gradient(circle at 20% 78%,rgba(255,220,196,.85) 0,transparent 42%),
+    radial-gradient(circle at 88% 92%,rgba(190,214,255,.75) 0,transparent 40%),
+    var(--crema);
+  background-attachment:fixed;
+}
+#flotantes{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#flotantes span{position:absolute;bottom:-50px;opacity:0;animation:sube linear infinite}
+@keyframes sube{0%{transform:translateY(0) rotate(-10deg);opacity:0}10%{opacity:.75}90%{opacity:.6}100%{transform:translateY(-115vh) rotate(20deg);opacity:0}}
+header,nav,main,footer{position:relative;z-index:1}
+
+/* ---------- Encabezado con ositos ---------- */
+header{text-align:center;padding:40px 16px 0}
+.pareja{display:flex;align-items:flex-end;justify-content:center;gap:2px}
+.oso{background:none;border:0;padding:0;cursor:pointer;width:clamp(110px,30vw,150px);-webkit-tap-highlight-color:transparent}
+.oso svg{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 10px rgba(155,93,229,.25))}
+.oso.a{animation:mece 3.4s ease-in-out infinite}
+.oso.b{animation:mece 3.4s ease-in-out infinite .6s}
+.oso:active{transform:scale(.94)}
+.oso.salto{animation:salto .6s ease}
+@keyframes mece{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes salto{0%{transform:scale(1)}40%{transform:scale(1.15) rotate(-6deg)}100%{transform:scale(1)}}
+.corazon-medio{font-size:2.6rem;margin-bottom:46px;animation:late 1.4s ease-in-out infinite}
+@keyframes late{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+header h1{
+  font-family:'Dancing Script','Brush Script MT',cursive;font-weight:700;
+  font-size:clamp(3.6rem,15vw,5.8rem);line-height:1.1;margin:6px 0 0;
+  background:linear-gradient(90deg,var(--rosa),var(--lila),var(--azul));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+#burbuja{
+  display:inline-block;margin:10px auto 0;padding:10px 22px;border-radius:999px;
+  background:#fff;color:var(--rosa);font-size:1.15rem;font-style:italic;
+  box-shadow:0 6px 18px rgba(232,69,124,.2);border:2px dashed var(--rosaclaro);
+}
+
+/* ---------- Navegación ---------- */
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:24px 14px 8px}
+nav a{
+  text-decoration:none;color:#fff;font-weight:500;font-size:1.2rem;
+  padding:12px 24px;border-radius:999px;
+  box-shadow:0 6px 16px rgba(74,37,64,.18);
+  opacity:.75;transition:transform .2s,opacity .2s;
+}
+nav a[data-v="carta"]{background:linear-gradient(135deg,#ff7aa5,#e8457c)}
+nav a[data-v="fotos"]{background:linear-gradient(135deg,#bd8cff,#9b5de5)}
+nav a[data-v="futuro"]{background:linear-gradient(135deg,#86b1ff,#5b8cff)}
+nav a:hover{opacity:1;transform:translateY(-2px)}
+nav a.activo{opacity:1;transform:scale(1.08);box-shadow:0 8px 22px rgba(74,37,64,.3)}
+nav a:focus-visible,.oso:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+
+/* ---------- Tarjetas ---------- */
+main{max-width:700px;margin:0 auto;padding:44px 16px 20px}
+section[hidden]{display:none}
+section:not([hidden]){animation:entra .7s ease}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tarjeta{
+  position:relative;background:rgba(255,255,255,.9);border-radius:32px;
+  padding:48px 26px 34px;border:3px dashed var(--rosaclaro);
+  box-shadow:0 16px 44px rgba(155,93,229,.2);
+}
+#fotos .tarjeta{border-color:#d9c2ff}
+#futuro .tarjeta{border-color:#bfd5ff}
+.insignia{
+  position:absolute;top:-30px;left:50%;transform:translateX(-50%);
+  background:#fff;border-radius:50%;width:62px;height:62px;
+  display:flex;align-items:center;justify-content:center;font-size:2.1rem;
+  box-shadow:0 6px 16px rgba(232,69,124,.3);border:3px solid var(--rosaclaro);
+}
+.frase{
+  font-family:'Dancing Script','Brush Script MT',cursive;font-weight:600;
+  font-size:2.05rem;line-height:1.45;text-align:center;color:var(--lila);margin:0 0 26px;
+}
+.tarjeta h2{
+  font-family:'Dancing Script','Brush Script MT',cursive;font-weight:700;
+  font-size:2.6rem;line-height:1.2;text-align:center;margin:0 0 24px;color:var(--rosa);
+}
+#futuro .tarjeta h2{color:#5b8cff}
+#fotos .tarjeta h2{color:var(--lila)}
+.carta p{margin:0 0 1.3em}
+.carta .mi-amor{font-family:'Dancing Script','Brush Script MT',cursive;font-size:2.1rem;font-weight:700;color:var(--durazno)}
+.carta .firma{margin-top:1.8em;text-align:right;font-style:italic;color:var(--rosa);font-size:1.38rem}
+.sep{text-align:center;font-size:1.9rem;letter-spacing:.4em;margin:26px 0 0}
+
+/* ---------- Fotos tipo polaroid ---------- */
+#galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 18px;padding-top:6px}
+#galeria figure{margin:0;position:relative}
+#galeria .marco{
+  position:relative;aspect-ratio:4/5;background:#fff;padding:8px 8px 26px;border-radius:6px;
+  box-shadow:0 10px 24px rgba(232,69,124,.3);transition:transform .3s;
+}
+#galeria figure:nth-child(odd) .marco{transform:rotate(-2.5deg)}
+#galeria figure:nth-child(even) .marco{transform:rotate(2.5deg)}
+#galeria .marco:hover{transform:rotate(0) scale(1.05);z-index:2}
+#galeria .marco::before{
+  content:"";position:absolute;top:-12px;left:50%;width:70px;height:22px;margin-left:-35px;
+  background:rgba(255,182,206,.75);transform:rotate(-4deg);border-radius:3px;
+}
+#galeria figure:nth-child(even) .marco::before{background:rgba(205,182,255,.75);transform:rotate(4deg)}
+#galeria figure:nth-child(3n) .marco::before{background:rgba(182,214,255,.8)}
+#galeria .marco::after{
+  content:"🧸";position:absolute;right:-8px;bottom:-12px;font-size:1.9rem;
+  filter:drop-shadow(0 3px 4px rgba(0,0,0,.25));
+}
+#galeria figure:nth-child(2n) .marco::after{content:"💗";left:-8px;right:auto}
+#galeria img{width:100%;height:100%;object-fit:cover;display:block;border-radius:3px}
+#galeria .vacio{display:flex;align-items:center;justify-content:center;font-size:3rem;height:100%;border-radius:3px;background:linear-gradient(135deg,#ffc2d6,#d9c2ff)}
+#galeria figcaption{text-align:center;font-style:italic;font-size:1.15rem;padding-top:14px}
+
+footer{text-align:center;color:var(--tinta);font-family:'Dancing Script','Brush Script MT',cursive;font-size:1.8rem;padding:18px 20px 50px}
+footer svg{width:64px;height:auto;display:block;margin:0 auto 4px}
+@media (min-width:640px){#galeria{grid-template-columns:repeat(3,1fr)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- Dibujo del osito (se reutiliza en toda la página) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="osito" viewBox="0 0 120 120">
+    <circle cx="27" cy="28" r="16" style="fill:var(--o1,#c98f6b)"/>
+    <circle cx="93" cy="28" r="16" style="fill:var(--o1,#c98f6b)"/>
+    <circle cx="27" cy="28" r="8" style="fill:var(--o3,#f4c7ab)"/>
+    <circle cx="93" cy="28" r="8" style="fill:var(--o3,#f4c7ab)"/>
+    <circle cx="60" cy="66" r="44" style="fill:var(--o2,#d9a07c)"/>
+    <ellipse cx="60" cy="80" rx="19" ry="15" style="fill:var(--o4,#f8dcc6)"/>
+    <ellipse cx="60" cy="73" rx="6" ry="4.5" fill="#5b3a29"/>
+    <path d="M60 77v4M52 82q8 8 16 0" stroke="#5b3a29" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <circle cx="43" cy="60" r="4.8" fill="#3d2518"/><circle cx="77" cy="60" r="4.8" fill="#3d2518"/>
+    <circle cx="44.6" cy="58.4" r="1.5" fill="#fff"/><circle cx="78.6" cy="58.4" r="1.5" fill="#fff"/>
+    <ellipse cx="32" cy="74" rx="7.5" ry="4.8" fill="#ff8fb1" opacity=".75"/>
+    <ellipse cx="88" cy="74" rx="7.5" ry="4.8" fill="#ff8fb1" opacity=".75"/>
+    <path d="M60 30c-3-6-12-3-9 4 2 4 9 8 9 8s7-4 9-8c3-7-6-10-9-4z" fill="#ff6b9a"/>
+  </symbol>
+</svg>
+
+<div id="flotantes"></div>
+
+<header>
+  <div class="pareja">
+    <button class="oso a" type="button" aria-label="Osito"><svg viewBox="0 0 120 120"><use href="#osito"/></svg></button>
+    <span class="corazon-medio">💗</span>
+    <button class="oso b" type="button" aria-label="Osita"><svg viewBox="0 0 120 120" style="--o1:#e9c3a4;--o2:#f5dcc6;--o3:#fbe9dc;--o4:#fffaf5"><use href="#osito"/></svg></button>
+  </div>
+  <h1>Para Eunice</h1>
+  <div id="burbuja">Toca a los ositos 🧸</div>
+</header>
+
+<nav>
+  <a href="#carta" data-v="carta">💌 Carta</a>
+  <a href="#fotos" data-v="fotos">📸 Nosotros</a>
+  <a href="#futuro" data-v="futuro">🌙 Futuro</a>
+</nav>
+
+<main>
+
+<!-- ============ APARTADO 1: CARTA ============ -->
+<section id="carta">
+  <div class="tarjeta">
+    <div class="insignia">🧸</div>
+    <p class="frase">“Hice este pequeño espacio en internet porque hay cosas que merecen tener un lugar especial, y tú eres una de ellas.” ❤️</p>
+    <article class="carta">
+      <h2>💌 Aunque nos separen kilómetros...</h2>
+      <p class="mi-amor">Mi amor:</p>
+      <p>Quisiera que por un momento pudieras mirar a través de mis ojos para que vieras lo increíble que eres para mí y lo mucho que significas en mi vida.</p>
+      <p>Sé que no siempre es fácil estar lejos. Hay días en los que quisiera tenerte frente a mí, abrazarte sin tener que despedirme, tomar tu mano, mirarte a los ojos y decirte lo mucho que te quiero sin que una pantalla tenga que estar de por medio.</p>
+      <p>A veces quisiera que los kilómetros desaparecieran, que no existiera una distancia entre nosotros y que simplemente pudiera estar ahí contigo, compartiendo hasta los momentos más sencillos. Porque no necesito hacer algo extraordinario para ser feliz a tu lado, muchas veces me bastaría con tenerte cerquita.</p>
+      <p>Pero quiero que sepas algo: la distancia no cambia lo que siento por ti. Aunque no pueda acompañarte físicamente en cada momento, quiero seguir estando presente en tu vida, escucharte, apoyarte, celebrar tus alegrías y recordarte lo maravillosa que eres.</p>
+      <p>No sé cuántos kilómetros nos separan exactamente, pero sí sé que ninguno de ellos es más grande que las ganas que tengo de verte, abrazarte y crear recuerdos contigo.</p>
+      <p>Tengo muchos sueños, y entre ellos está ese día en el que ya no tengamos que despedirnos a través de una pantalla, en el que podamos mirarnos y pensar que todo este tiempo esperando valió la pena.</p>
+      <p>Gracias por existir, por formar parte de mi vida y por ser esa persona con la que quiero compartir tantas cosas bonitas.</p>
+      <p>Si algo quiero que nunca olvides es que, aunque hoy no pueda abrazarte, mi cariño siempre encuentra la manera de llegar hasta ti.</p>
+      <p>Te amoo muchísimo, mi niña. Y mientras llega el día de tenerte cerquita, seguiré queriéndote desde aquí, con la misma ilusión de siempre. ❤️</p>
+      <p class="firma">Con todo mi cariño, para ti.</p>
+    </article>
+    <div class="sep">🧸💗🧸</div>
+  </div>
+</section>
+
+<!-- ============ APARTADO 2: FOTOS ============ -->
+<section id="fotos" hidden>
+  <div class="tarjeta">
+    <div class="insignia">📸</div>
+    <h2>Nosotros</h2>
+    <div id="galeria"></div>
+    <div class="sep">🧸💗🧸</div>
+  </div>
+</section>
+
+<!-- ============ APARTADO 3: FUTURO ============ -->
+<section id="futuro" hidden>
+  <div class="tarjeta">
+    <div class="insignia">🌙</div>
+    <article class="carta">
+      <h2>🌙 Nuestro futuro, nuestros sueños...</h2>
+      <p class="mi-amor">Mi amor:</p>
+      <p>Hay tantas cosas que me gustaría vivir contigo que a veces me pongo a imaginar cómo será nuestro futuro. Me imagino un día en el que la distancia deje de ser parte de nuestra historia, en el que ya no tengamos que conformarnos con llamadas, mensajes o fotografías para sentirnos cerca, porque por fin podremos estar uno al lado del otro.</p>
+      <p>Sueño con esos pequeños momentos que quizás para otras personas sean cotidianos, pero que para mí serían extraordinarios: salir a caminar contigo, tomarnos de la mano, ver una película juntos, salir a comer, abrazarte sin mirar el reloj y poder decirte buenas noches teniéndote cerquita.</p>
+      <p>Quiero conocer muchos lugares contigo, descubrir nuevas experiencias, reírnos por tonterías, tomar fotografías de nuestros días y construir recuerdos que algún día podamos mirar con una sonrisa.</p>
+      <p>Sé que todavía tenemos kilómetros de por medio y que no siempre será sencillo, pero me ilusiona pensar que todo esto es solamente una parte de nuestra historia, no el final que nos espera.</p>
+      <p>No quiero que nuestro futuro sea solamente una promesa bonita, quiero que poco a poco lo construyamos con amor, paciencia, confianza y muchas ganas de seguir adelante juntos.</p>
+      <p>Y si algún día me preguntan qué es lo que más espero del futuro, mi respuesta sería sencilla: despertar un día y saber que la persona que antes veía a través de una pantalla ahora está a mi lado.</p>
+      <p>Porque entre todos los lugares que quisiera conocer, mis momentos favoritos serán aquellos en los que pueda estar contigo.</p>
+      <p>Ojalá la vida nos regale muchos años, muchos abrazos y muchísimas historias que todavía no hemos comenzado a escribir.</p>
+      <p class="firma">Con amor, para todos los días que todavía nos esperan. ❤️</p>
+    </article>
+    <div class="sep">🧸💗🧸</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <svg viewBox="0 0 120 120"><use href="#osito"/></svg>
+  Hecho con amor, para ti 💕
+</footer>
+
+<script>
+/* ==========================================================
+   FOTOS
+   Están dentro de la carpeta "fotos", que debe estar junto
+   a este archivo index.html.
+   Para poner un texto debajo de una foto, cámbiala así:
+   { src: "fotos/love.jpeg", texto: "Nuestro recuerdo" },
+   ========================================================== */
+const FOTOS = [
+  "fotos/aye.jpeg",
+  "fotos/amoe.jpeg",
+  "fotos/imagen.jpeg",
+  "fotos/love.jpeg",
+  "fotos/seven.jpeg",
+  "fotos/WhatsApp%20Image%202026-11-07%20at%2010.28.51%20PM.jpeg",
+];
+
+/* Frases que dicen los ositos cuando los tocas (puedes cambiarlas) */
+const FRASES = [
+  "Un abracito de oso para ti 🧸",
+  "Te quiero muchísimo 💗",
+  "Eres mi persona favorita ✨",
+  "Pienso en ti todo el día 🌸",
+  "Mi corazón es tuyo 🤍",
+  "Ojalá pudiera abrazarte ahorita 🧸",
+];
+
+/* ---------- Lo de abajo no hace falta tocarlo ---------- */
+const vistas = ['carta', 'fotos', 'futuro'];
+function mostrar() {
+  let h = location.hash.slice(1);
+  if (!vistas.includes(h)) h = 'carta';
+  vistas.forEach(v => {
+    document.getElementById(v).hidden = (v !== h);
+    document.querySelector('[data-v="' + v + '"]').classList.toggle('activo', v === h);
+  });
+  window.scrollTo(0, 0);
+}
+addEventListener('hashchange', mostrar);
+mostrar();
+
+const galeria = document.getElementById('galeria');
+const lista = FOTOS.length ? FOTOS : [null, null, null, null, null, null];
+lista.forEach(f => {
+  const fig = document.createElement('figure');
+  const marco = document.createElement('div');
+  marco.className = 'marco';
+  if (f) {
+    const src = typeof f === 'string' ? f : f.src;
+    const img = document.createElement('img');
+    img.src = src; img.alt = 'Nosotros'; img.loading = 'lazy';
+    marco.appendChild(img);
+    fig.appendChild(marco);
+    if (typeof f !== 'string' && f.texto) {
+      const c = document.createElement('figcaption');
+      c.textContent = f.texto;
+      fig.appendChild(c);
+    }
+  } else {
+    marco.innerHTML = '<div class="vacio">🧸</div>';
+    fig.appendChild(marco);
+  }
+  galeria.appendChild(fig);
+});
+
+/* Ositos que dicen cosas bonitas */
+let n = 0;
+const burbuja = document.getElementById('burbuja');
+document.querySelectorAll('.oso').forEach(b => {
+  b.addEventListener('click', () => {
+    burbuja.textContent = FRASES[n % FRASES.length];
+    n++;
+    b.classList.remove('salto');
+    void b.offsetWidth;
+    b.classList.add('salto');
+  });
+});
+
+/* Ositos y corazones que suben suavemente de fondo */
+const cont = document.getElementById('flotantes');
+const iconos = ['🧸', '💗', '🌸', '🤍', '✨', '🎀', '💕'];
+for (let i = 0; i < 16; i++) {
+  const s = document.createElement('span');
+  s.textContent = iconos[i % iconos.length];
+  s.style.left = (Math.random() * 94) + '%';
+  s.style.fontSize = (18 + Math.random() * 24) + 'px';
+  s.style.animationDuration = (13 + Math.random() * 13) + 's';
+  s.style.animationDelay = (Math.random() * 16) + 's';
+  cont.appendChild(s);
+}
+</script>
+</body>
+</html>
